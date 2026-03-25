@@ -1,0 +1,20 @@
+# config/llm.yaml
+# إعدادات نموذج الذكاء الاصطناعي لمشروع EduSim Egypt
+
+llm:
+  provider: "groq"                    # يدعم Groq (سريع ورخيص) أو "ollama" لو عايز تشغل محلي
+  model_name: "llama3-70b-8192"       # أقوى نموذج حالياً على Groq + يدعم العربي ممتاز
+  temperature: 0.75                   # درجة الإبداع (0.7-0.8 مثالي للشخصيات)
+  max_tokens: 1200
+  api_key_env: "GROQ_API_KEY"        # هياخد المفتاح من ملف .env
+
+# إعدادات إضافية للمحاكاة
+simulation:
+  default_num_agents: 500
+  max_days: 7                         # أيام المحاكاة الافتراضية
+  language: "ar"                      # اللهجة المصرية
+
+# لو عايز تستخدم نموذج عربي محلي في المستقبل
+fallback:
+  provider: "ollama"
+  model_name: "jais-13b"              # أو acegpt أو أي نموذج عربي محلي
